@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUSA 303: The Entrepreneurial Mindset | McGill Desautels</title>
+<meta name="description" content="A three-credit McGill course open to students in every faculty. Thirteen Fridays of practice in noticing problems and acting on them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ---------- Riso pop tokens (swap in tokens.css values here) ---------- */
+:root{
+  --cream:#F2EADB;      /* paper stock */
+  --paper:#FBF6EC;      /* lighter card stock */
+  --red:#E2412E;        /* riso red: large type and fills only */
+  --red-deep:#B8301F;   /* red for small text, passes AA on cream */
+  --mustard:#E6AE2C;    /* riso mustard: fills only, never text on cream */
+  --ink:#231F20;        /* riso black */
+  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --shadow:6px 6px 0;
+  --measure:62ch;
+  --gutter:clamp(1.25rem, 4vw, 3rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font:400 1.0625rem/1.6 var(--body);
+  -webkit-font-smoothing:antialiased;
+}
+/* grain everywhere */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;
+  opacity:.22;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.14 0 0 0 0 0.12 0 0 0 0 0.12 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img,svg{max-width:100%}
+a{color:var(--ink);text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--red)}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--mustard)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--cream);padding:.5rem 1rem;z-index:200}
+.skip:focus{left:1rem;top:1rem}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2rem, 4.6vw, 3.4rem);font-weight:800;max-width:18ch}
+h3{font-size:1.35rem;font-weight:600;line-height:1.15}
+p{margin:0 0 1rem;max-width:var(--measure)}
+.lede{font-size:clamp(1.15rem,1.8vw,1.35rem);line-height:1.5}
+.badge{
+  display:inline-block;font:500 .82rem/1 var(--mono);
+  padding:.45rem .65rem;border:2px solid var(--ink);background:var(--paper);
+  box-shadow:3px 3px 0 var(--ink);
+}
+.badge.red{background:var(--red);color:var(--paper);border-color:var(--ink)}
+.badge.mustard{background:var(--mustard)}
+
+/* ---------- header ---------- */
+.top{border-bottom:2px solid var(--ink);background:var(--cream);position:sticky;top:0;z-index:50}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px}
+.mark{font:800 1.1rem/1 var(--display);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.mark span{font:400 .8rem/1.2 var(--mono)}
+.top nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;font-size:.95rem}
+.top nav a{text-decoration:none;font-weight:500}
+.top nav a:hover{text-decoration:underline;text-decoration-color:var(--red)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* ---------- hero: the one loud moment ---------- */
+.hero{position:relative;overflow:hidden;padding:clamp(3rem,8vw,6.5rem) 0 clamp(3rem,7vw,5.5rem);border-bottom:2px solid var(--ink)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
+.halftone{
+  position:absolute;right:-8vw;top:-6vw;width:min(62vw,720px);aspect-ratio:1;
+  background-image:radial-gradient(var(--red) 32%, transparent 34%);
+  background-size:13px 13px;
+  -webkit-mask-image:radial-gradient(circle at 50% 50%, #000 0 38%, transparent 70%);
+          mask-image:radial-gradient(circle at 50% 50%, #000 0 38%, transparent 70%);
+  opacity:.28;pointer-events:none;
+}
+.misreg{
+  position:relative;isolation:isolate;
+  font-size:clamp(2.7rem, 9.2vw, 7.4rem);font-weight:800;line-height:.9;letter-spacing:-.035em;
+  margin:1.2rem 0 0;
+}
+.misreg .ink{color:var(--red);display:block}
+.misreg .plate{
+  position:absolute;inset:0;color:var(--mustard);mix-blend-mode:multiply;
+  transform:translate(.05em,.045em);display:block;
+  animation:register 1.1s cubic-bezier(.2,.8,.2,1) .15s both;
+}
+@keyframes register{from{transform:translate(.22em,-.12em);opacity:.0}to{transform:translate(.05em,.045em);opacity:1}}
+.hero-title{grid-column:1/-1}
+.hero .lede{max-width:46ch}
+.hero-links{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:1.5rem;font-weight:500}
+
+.sticky{
+  background:var(--mustard);border:2px solid var(--ink);box-shadow:var(--shadow) var(--ink);
+  padding:1.4rem 1.5rem 1.5rem;transform:rotate(2.2deg);max-width:330px;justify-self:end;
+}
+.sticky dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.55rem 1rem;font-size:.98rem}
+.sticky dt{font:500 .8rem/1.6 var(--mono)}
+.sticky dd{margin:0;font-weight:600}
+.sticky p{font:400 .9rem/1.45 var(--body);margin:1rem 0 0;border-top:2px solid var(--ink);padding-top:.85rem}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .sticky{justify-self:start;transform:rotate(-1.5deg)}
+}
+
+/* ---------- sections ---------- */
+section{padding:clamp(4rem,9vw,7rem) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem;align-items:end;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.sec-head p{margin:0}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}}
+
+/* flavors: tilted cards */
+.flavors{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2.2rem 1.8rem;list-style:none;margin:0;padding:0}
+.card{
+  background:var(--paper);border:2px solid var(--ink);box-shadow:var(--shadow) var(--red);
+  padding:1.4rem 1.4rem 1.5rem;transform:rotate(var(--tilt,-1deg));
+}
+.card:nth-child(3n+2){--tilt:1.2deg;box-shadow:var(--shadow) var(--mustard)}
+.card:nth-child(3n){--tilt:-.4deg}
+.card h3{margin-bottom:.5rem}
+.card p{font-size:.98rem;margin:0}
+
+/* principles: plain, disciplined */
+.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}
+.principles div{padding:1.6rem 1.4rem 0 0}
+.principles div+div{padding-left:1.4rem;border-left:2px solid var(--ink)}
+.principles h3{font-size:1.6rem;font-weight:800;color:var(--red);margin-bottom:.7rem}
+.principles p{font-size:.98rem}
+@media (max-width:900px){
+  .principles{grid-template-columns:1fr 1fr}
+  .principles div:nth-child(3){border-left:0;padding-left:0}
+  .principles div:nth-child(n+3){border-top:2px solid var(--ink);margin-top:1.5rem}
+}
+@media (max-width:560px){
+  .principles{grid-template-columns:1fr}
+  .principles div,.principles div+div{border-left:0;padding-left:0}
+  .principles div+div{border-top:2px solid var(--ink);margin-top:1.5rem}
+}
+
+/* what you do */
+.alt{background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.practices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2.5rem 2rem}
+.practice h3{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;margin-bottom:.6rem}
+.practice .badge{font-size:.75rem;padding:.3rem .5rem;box-shadow:none}
+/* catalytic event */
+.event{background:var(--mustard);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.event .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:3rem;align-items:center}
+.event h2{max-width:14ch}
+.event .date-block{
+  background:var(--paper);border:2px solid var(--ink);box-shadow:var(--shadow) var(--red);
+  padding:1.6rem;transform:rotate(-2deg);text-align:left;
+}
+.event .date-block strong{display:block;font:800 clamp(2.4rem,5vw,3.8rem)/.95 var(--display);color:var(--red);margin:.3rem 0 .5rem}
+.event .date-block span{font:500 .9rem/1.5 var(--mono)}
+.steps{list-style:none;padding:0;margin:1.5rem 0 0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.2rem 1fr;gap:.5rem;margin-bottom:.7rem;max-width:var(--measure)}
+.steps li::before{content:counter(s);font:800 1.1rem/1.5 var(--display)}
+@media (max-width:860px){.event .wrap{grid-template-columns:1fr}.event .date-block{justify-self:start}}
+
+/* people */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2rem;list-style:none;margin:0;padding:0}
+.person{border-top:6px solid var(--red);padding-top:1rem}
+.person:nth-child(even){border-top-color:var(--mustard)}
+.person h3{margin-bottom:.2rem}
+.person .role{font:400 .85rem/1.5 var(--mono);display:block;margin-bottom:.6rem}
+.person p{font-size:.97rem}
+
+.guests{columns:2 320px;column-gap:3rem;list-style:none;padding:0;margin:3rem 0 0;border-top:2px solid var(--ink);padding-top:1.5rem}
+.guests li{break-inside:avoid;padding:.55rem 0;border-bottom:1px dashed var(--ink)}
+.guests b{font-family:var(--display);font-weight:600;font-size:1.08rem}
+
+/* faq */
+.faq{max-width:780px}
+.faq details{border-bottom:2px solid var(--ink)}
+.faq details:first-child{border-top:2px solid var(--ink)}
+.faq summary{cursor:pointer;list-style:none;padding:1.15rem 2.5rem 1.15rem 0;position:relative;font:600 1.2rem/1.3 var(--display)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:1rem;font:500 1.4rem/1 var(--mono)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding-right:2.5rem}
+
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:3.5rem 0 2.5rem}
+footer a{color:var(--cream);text-decoration-color:var(--mustard)}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem}
+footer .big{font:800 clamp(1.8rem,4vw,2.6rem)/1 var(--display);color:var(--mustard);margin-bottom:1rem}
+footer small{display:block;font-size:.85rem;line-height:1.55;opacity:.85;max-width:60ch}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .misreg .plate{animation:none}
+}
+
+/* examples of a week: not a sequence, so no numbers */
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2.2rem 1.8rem;list-style:none;margin:0;padding:0}
+.themes .card h3{margin-bottom:.6rem}
+.themes .try{display:block;margin-top:.9rem;padding-top:.8rem;border-top:2px dashed var(--ink);font-size:.95rem}
+.themes .try b{font:500 .8rem/1.6 var(--mono);font-weight:500;margin-right:.4rem}
+.themes .badge{margin-top:1rem;font-size:.72rem;padding:.3rem .5rem;box-shadow:none}
+
+/* get involved */
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2.2rem 1.8rem;list-style:none;margin:0;padding:0}
+.paths .card{display:flex;flex-direction:column}
+.paths .card p{flex:1;margin-bottom:1.2rem}
+.paths .go{
+  align-self:flex-start;font-weight:600;text-decoration:none;background:var(--ink);color:var(--paper);
+  padding:.6rem .9rem;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--mustard);
+}
+.paths .go:hover{background:var(--red);border-color:var(--ink)}
+.v1{display:inline-block;margin-left:.6rem;transform:rotate(-4deg)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">BUSA 303 <span>McGill Desautels</span></a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#who">Who it's for</a></li>
+        <li><a href="#how">How it runs</a></li>
+        <li><a href="#inside">Inside a class</a></li>
+        <li><a href="#event">Campus event</a></li>
+        <li><a href="#involved">Get involved</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-title">
+      <span class="badge red">BUSA 303 &nbsp;/&nbsp; 3 credits</span><span class="badge mustard v1">Version 1: running Fall 2026</span>
+      <h1 class="misreg">
+        <span class="ink">The Entre&shy;preneurial Mindset</span>
+        <span class="plate" aria-hidden="true">The Entre&shy;preneurial Mindset</span>
+      </h1>
+    </div>
+    <div>
+      <p class="lede">A McGill course about noticing problems and doing something about them with whatever you have on hand. Students practise it through exercises, site visits and conversations with people who built things in very different corners of Montréal.</p>
+      <p>You don't need a startup idea, and you don't need to be in Management. Most people who take this course won't found a company. They'll bring the habit into a lab, a clinic, a studio or an organization someone else started.</p>
+      <div class="hero-links">
+        <a href="#inside">See what a class looks like</a>
+        <a href="#involved">How to get involved</a>
+      </div>
+    </div>
+    <aside class="sticky" aria-label="Course at a glance">
+      <dl>
+        <dt>For</dt><dd>Students in any faculty</dd>
+        <dt>Format</dt><dd>One long afternoon a week, mostly hands-on</dd>
+        <dt>Ends with</dt><dd>An event the class runs for the campus</dd>
+      </dl>
+      <p>The first version is running now. We're learning from it and will revise the course for future years.</p>
+    </aside>
+  </div>
+</div>
+
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Entrepreneurs come in more kinds than the headlines suggest</h2>
+      <p class="lede">The usual picture is a tech founder with a pitch deck. That's one version. This course looks at many of them, and at the habits of mind they have in common.</p>
+    </div>
+    <ul class="flavors">
+      <li class="card"><h3>The artist</h3><p>A musician, designer or performer making a living from their craft and building an audience around it.</p></li>
+      <li class="card"><h3>The scientist</h3><p>A researcher taking an invention out of the lab and finding the people who need it.</p></li>
+      <li class="card"><h3>The organizer</h3><p>An activist or nonprofit founder pulling people and resources together to change something in their community.</p></li>
+      <li class="card"><h3>The professional</h3><p>A dentist, lawyer or physiotherapist opening a practice of their own.</p></li>
+      <li class="card"><h3>The intrapreneur</h3><p>An employee who spots an opening inside a large organization and starts something new there.</p></li>
+      <li class="card"><h3>The founder</h3><p>Yes, also the person starting a venture from nothing. They're welcome here too.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How the course runs</h2>
+      <p>The design draws on Bandura's work on self-efficacy: confidence grows through doing, watching others do, encouragement and reflection. Each class mixes all four.</p>
+    </div>
+    <div class="principles">
+      <div><h3>Democratize</h3><p>Entrepreneurial thinking belongs to every discipline. The aim is to find where it fits your path, whatever that path is.</p></div>
+      <div><h3>Play. Do. Learn.</h3><p>Most classes include a hands-on exercise that puts the idea to use the same afternoon, in a setting where getting it wrong costs little.</p></div>
+      <div><h3>Interdisciplinary</h3><p>The room is deliberately mixed. English, chemistry, engineering, music and management students work on the same problems.</p></div>
+      <div><h3>Human-centered</h3><p>Start from what people need. Take the humanity of entrepreneurs seriously too, including the stress and the setbacks.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="inside">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Inside a class</h2>
+      <p>Each session pairs an idea from entrepreneurship research with something to try, and usually a guest from a different corner of the entrepreneurial world. A few examples from the first run:</p>
+    </div>
+    <ul class="themes">
+      <li class="card"><h3>Start from what you have</h3><p>Effectuation: experienced entrepreneurs often begin with their means and the people around them, not a fixed goal.</p><span class="try"><b>Try it</b>Puzzles and quilts, a build-it-together exercise</span><span class="badge">culture and sports</span></li>
+      <li class="card"><h3>Act before you're sure</h3><p>Improvisation and embodied action, learned with your whole body rather than a slide deck.</p><span class="try"><b>Try it</b>A workshop with a Montréal circus company</span><span class="badge">arts</span></li>
+      <li class="card"><h3>Build something this afternoon</h3><p>Prototyping with AI tools, and an honest conversation about what they're good and bad at.</p><span class="try"><b>Try it</b>A no-code build session with a student AI club</span><span class="badge">AI</span></li>
+      <li class="card"><h3>Treat failure as data</h3><p>How people recover from setbacks and separate a failed hypothesis from a failed person.</p><span class="try"><b>Try it</b>Write your own failure résumé</span><span class="badge">food</span></li>
+      <li class="card"><h3>Change the frame</h3><p>The same situation can read as a threat or an opening, and the frame changes what you think you can do.</p><span class="try"><b>Try it</b>Framestorming</span><span class="badge">coaching</span></li>
+      <li class="card"><h3>Make room for luck</h3><p>Serendipity favours people who act and stay open. You can arrange your week so more of it happens.</p><span class="try"><b>Try it</b>A 72-hour serendipity challenge</span><span class="badge">everyday life</span></li>
+      <li class="card"><h3>Make do</h3><p>Bricolage: recombining what's lying around when the ideal resources aren't there.</p><span class="try"><b>Try it</b>A creative resource challenge</span><span class="badge">corporate</span></li>
+      <li class="card"><h3>Learn in loops</h3><p>Build, test, learn and try again, using feedback from people outside your own head.</p><span class="try"><b>Try it</b>The d.school wallet exercise</span><span class="badge">science</span></li>
+      <li class="card"><h3>Go where it happens</h3><p>Some classes leave the room: an entrepreneurship centre on campus, a circus studio, a tech company's headquarters.</p><span class="try"><b>Try it</b>Site visits across Montréal</span><span class="badge">tech</span></li>
+    </ul>
+
+    <div class="practices" style="margin-top:clamp(3.5rem,7vw,5rem)">
+      <div class="practice">
+        <h3>Field Notes <span class="badge mustard">by hand</span></h3>
+        <p>Every student gets a pocket sketchpad for raw observations: pain points, odd questions, half-formed ideas. It stays private and analog.</p>
+      </div>
+      <div class="practice">
+        <h3>Reflection journal</h3>
+        <p>Entries start from something that frustrated you or seemed broken, worked through with three prompts: What? So what? Now what?</p>
+      </div>
+      <div class="practice">
+        <h3>Entrepreneur interview</h3>
+        <p>Pick someone who built something, in any field, and talk to them about the turning points. Then read their story through the ideas from class.</p>
+      </div>
+      <div class="practice">
+        <h3>AI, used openly</h3>
+        <p>Students can use AI tools on assignments with a short note on how. Do some thinking first, check what it gives you, and own the result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="event" id="event">
+  <div class="wrap">
+    <div>
+      <h2>Each term ends with something the class runs for the whole campus</h2>
+      <p class="lede" style="margin-top:1.25rem">There is no fixed format. It could be a design jam, a problem challenge, a pop-up store or something nobody has tried yet. The students decide, and they plan it in public.</p>
+      <ol class="steps">
+        <li>Everyone sketches ideas, forms teams around the strongest ones and pitches them to the room.</li>
+        <li>The top concepts leave the classroom and get tested on people outside the course.</li>
+        <li>The class votes, and the winner gets built over the rest of the term.</li>
+      </ol>
+    </div>
+    <div class="date-block">
+      <span>Open to</span>
+      <strong>All of McGill</strong>
+      <span>Watch for it at the end of the fall term</span>
+    </div>
+  </div>
+</section>
+
+<section id="people">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Who's in the room</h2>
+      <p>A small teaching team with student TAs from outside Management, a graphic recorder drawing each session live on a large poster, and guests chosen to show how differently entrepreneurship can look.</p>
+    </div>
+    <ul class="people">
+      <li class="person"><h3>Robert Nason</h3><span class="role">Instructor</span><p>Associate Professor of Strategy and Organization and Director of Entrepreneurship and Innovation at Desautels.</p></li>
+      <li class="person"><h3>Student TAs</h3><span class="role">Teaching team</span><p>Upper-year students from different faculties who run polls, give feedback and help the class organize its event.</p></li>
+      <li class="person"><h3>Live graphic recording</h3><span class="role">In the room</span><p>An artist captures each session as a hand-drawn poster: the frameworks, the exercises and what the guests said.</p></li>
+    </ul>
+    <p style="margin-top:3rem" class="lede">Some of the people who joined us in Fall 2026:</p>
+    <ul class="guests" aria-label="Fall 2026 guests" style="margin-top:1rem">
+      <li><b>Ashkan Karbasfrooshan</b>, WatchMojo</li>
+      <li><b>Shobhita Soor</b>, Legendary Foods Africa</li>
+      <li><b>Gypsy Snider</b>, Les 7 Doigts de la Main</li>
+      <li><b>Philippe Beaudoin</b>, formerly of Element AI</li>
+      <li><b>Jake Karls</b>, Mid-Day Squares</li>
+      <li><b>Edgar Brown</b>, Principled Growth</li>
+      <li><b>Jeff Bergthorson</b>, McGill Engineering</li>
+      <li><b>Harley Finkelstein</b>, Shopify</li>
+    </ul>
+  </div>
+</section>
+
+<section class="alt" id="involved">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How to get involved</h2>
+      <p>The course depends on people outside the classroom as much as the students in it. Here's where you might fit.</p>
+    </div>
+    <ul class="paths">
+      <li class="card"><h3>Take the course</h3><p>Look for BUSA 303 when you register for fall courses. Management students who want in should email first.</p><a class="go" href="mailto:robert.nason@mcgill.ca?subject=Taking%20BUSA%20303">Ask about taking it</a></li>
+      <li class="card"><h3>Come to the campus event</h3><p>Every fall the class runs an event open to all of McGill. Join the list and we'll tell you when and where.</p><a class="go" href="mailto:robert.nason@mcgill.ca?subject=BUSA%20303%20campus%20event">Get event updates</a></li>
+      <li class="card"><h3>Speak or host a visit</h3><p>Built something in an unexpected field? We're always looking for guests and places to visit.</p><a class="go" href="mailto:robert.nason@mcgill.ca?subject=Speaking%20at%20BUSA%20303">Offer a visit</a></li>
+      <li class="card"><h3>Partner with the course</h3><p>Alumni, organizations and McGill units can help with challenges, resources or support for future runs.</p><a class="go" href="mailto:robert.nason@mcgill.ca?subject=Partnering%20with%20BUSA%20303">Start a conversation</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Questions people ask</h2>
+      <p>Something missing? Email <a href="mailto:robert.nason@mcgill.ca">robert.nason@mcgill.ca</a>.</p>
+    </div>
+    <div class="faq">
+      <details><summary>Do I need a business idea to take this?</summary>
+        <p>No. The course is about how you notice and act on problems, wherever you end up. Plenty of students arrive without any plan to start something, and that's expected.</p></details>
+      <details><summary>Who can register?</summary>
+        <p>The course is built for students outside the Faculty of Management. Management students who are keen should email Professor Nason directly.</p></details>
+      <details><summary>When is it offered?</summary>
+        <p>In the fall term. Version 1 is running in Fall 2026, and future offerings will be posted here once they're confirmed.</p></details>
+      <details><summary>Is there a textbook or a final exam?</summary>
+        <p>Neither. Readings are short and mostly free: articles, longform journalism, the occasional chapter excerpt. Grades come from participation, reflection, an interview, the campus event and a final synthesis paper.</p></details>
+      <details><summary>How much of the course is lecture?</summary>
+        <p>Not much. A typical class has a short framing of the idea, an exercise, a guest or a site visit, and time to compare notes afterward. Guests are meant to be thought-provoking rather than gospel, and they often disagree with each other.</p></details>
+      <details><summary>Who supports the course?</summary>
+        <p>BUSA 303 is offered by the Desautels Faculty of Management with support from the John Dobson Foundation, and connects students to the wider McGill and Montréal innovation community.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="big">BUSA 303: The Entrepreneurial Mindset</p>
+      <p>Desautels Faculty of Management, Innovation &amp; Entrepreneurship<br>
+      <a href="mailto:robert.nason@mcgill.ca">robert.nason@mcgill.ca</a></p>
+      <small style="margin-top:1rem">Version 1, Fall 2026. This page will change as the course does.</small>
+    </div>
+    <div>
+      <small>McGill University is on land which has long served as a site of meeting and exchange amongst Indigenous peoples, including the Haudenosaunee and Anishinabeg nations. We acknowledge and thank the diverse Indigenous people whose footsteps have marked this territory on which peoples of the world now gather.</small>
+      <small style="margin-top:1rem">Supported by the John Dobson Foundation.</small>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
